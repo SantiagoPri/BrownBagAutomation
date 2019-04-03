@@ -1,7 +1,7 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 
-namespace Selenium
+namespace Selenium.Steps
 {
     [Binding]
     public class SpecFlowFeature1Steps
