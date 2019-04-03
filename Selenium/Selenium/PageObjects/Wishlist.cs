@@ -32,12 +32,12 @@ namespace Selenium.PageObjects
         }
 
 
-        public void NewWishList()
+        public void NewWishList(string wishlistname)
         {
             
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             tag = Actions.buscarIds(driver, "name");
-            Actions.Type(driver, tag, "My sweet 16");
+            Actions.Type(driver, tag, wishlistname);
             tag = Actions.buscarIds(driver, "submitWishlist");
             Actions.ClickOn(driver, tag);
 
