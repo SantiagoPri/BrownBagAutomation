@@ -78,13 +78,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\wishstepspath.cs">
-      <Link>wishstepspath.cs</Link>
-    </Compile>
-    <Compile Include="Featur\wishlistpath.feature.cs">
+    <Compile Include="Featur\wstep.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>wishlistpath.feature</DependentUpon>
+      <DependentUpon>wstep.feature</DependentUpon>
     </Compile>
     <Compile Include="PageObj\Account.cs" />
     <Compile Include="PageObj\Actions.cs" />
@@ -94,13 +91,14 @@
     <Compile Include="PageObj\Homepage.cs" />
     <Compile Include="PageObj\Wishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WstepSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Default.srprofile" />
-    <None Include="Featur\wishlistpath.feature">
+    <None Include="Featur\wstep.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>wishlistpath.feature.cs</LastGenOutput>
+      <LastGenOutput>wstep.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="runtests.cmd" />

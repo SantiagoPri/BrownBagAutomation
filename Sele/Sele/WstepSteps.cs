@@ -8,10 +8,11 @@ using TechTalk.SpecFlow;
 namespace Sele
 {
     [Binding]
-    public class wishstepspath
+    public class WstepSteps
     {
         IWebDriver driver;
         Homepage home;
+        Login log;
         Account act;
         Wishlist wish;
         Dresses dresses;
@@ -23,6 +24,7 @@ namespace Sele
         {
             driver = new ChromeDriver();
             home = new Homepage(driver);
+            log = new Login(driver);
             act = new Account(driver);
             wish = new Wishlist(driver);
             dresses = new Dresses(driver);
@@ -32,18 +34,18 @@ namespace Sele
         }
 
         [Given]
-        public void GivenIMLoggedInHomepage()
+        public void GivenIEnterTheHomepage()
         {
+
             home.GoToPage();
-
-        }
-
-        [Given]
-        public void GivenIClickOnViewMyCustomerAccount()
-        {
             home.ClickOnAccount();
         }
 
+        [Given]
+        public void GivenILogIn()
+        {
+            log.login();
+        }
 
         [Given]
         public void GivenClickOnWishlist()

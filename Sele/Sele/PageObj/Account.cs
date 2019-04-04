@@ -36,7 +36,7 @@ namespace Sele.PageObj
         {
             
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            tag = Actions.buscarClassname(driver, "myaccount-link-list");
+            tag = Actions.buscarClassname(driver, "lnk_wishlist");
         }
     }
 }

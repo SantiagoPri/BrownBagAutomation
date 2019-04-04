@@ -17,20 +17,20 @@ namespace Sele.Featur
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("wishlistpath", Description="\tAdd an item after creating a wishlist for my sweet 16", SourceFile="Featur\\wishlistpath.feature", SourceLine=0)]
-    public partial class WishlistpathFeature
+    [TechTalk.SpecRun.FeatureAttribute("wstep", Description="Add an item after creating a wishlist for my sweet 16", SourceFile="Featur\\wstep.feature", SourceLine=0)]
+    public partial class WstepFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "wishlistpath.feature"
+#line 1 "wstep.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "wishlistpath", "\tAdd an item after creating a wishlist for my sweet 16", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "wstep", "Add an item after creating a wishlist for my sweet 16", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,9 +76,9 @@ namespace Sele.Featur
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
- testRunner.Given("I\'m logged in homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I enter the homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.And("I click on view my customer account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
  testRunner.And("click on wishlist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
