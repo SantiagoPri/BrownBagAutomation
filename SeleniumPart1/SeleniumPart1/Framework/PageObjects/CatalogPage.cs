@@ -12,11 +12,12 @@ namespace SeleniumPart1.Framework.PageObjects
     class CatalogPage
     {
         private IWebDriver driver;
+        By btnAddtoCart = By.XPath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/div[2]/a[1]");
 
         public CatalogPage(IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            //PageFactory.InitElements(driver, this);
         }
 
         /*[FindsBy(How = How.XPath, Using = "//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/div[2]/a[1]")]
@@ -27,7 +28,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void ClickOnAddtoCartButton()
         {
-            Actions.ClickOn(driver, By.XPath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/div[2]/a[1]"));
+            Actions.ClickOn(driver, btnAddtoCart);
         }
                 
 

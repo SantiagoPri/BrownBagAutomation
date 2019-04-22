@@ -12,15 +12,17 @@ namespace SeleniumPart1.Framework.PageObjects
     class MyAccountPage
     {
         private IWebDriver driver;
+        By liWomenOption = By.XPath("//*[@id=\"block_top_menu\"]/ul/li[1]");
+        By lblSuccess = By.ClassName("info-account");
 
         public MyAccountPage (IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            //PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.ClassName, Using = "info-account")]
-        private IWebElement success;
+        /*[FindsBy(How = How.ClassName, Using = "info-account")]
+        private IWebElement success;*/
 
         /*[FindsBy(How = How.XPath, Using = "//*[@id=\"block_top_menu\"]/ul/li[1]")]
         private IWebElement womenOption;*/
@@ -28,13 +30,15 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public string GetSuccessMessage()
         {
-            return success.Text;
+            string success = Actions.GetText(driver, lblSuccess);
+            return success;
+            //return success.Text;
         }
 
 
         public void ClickOnWomenOption()
         {
-            Actions.ClickOn(driver, By.XPath("//*[@id=\"block_top_menu\"]/ul/li[1]"));
+            Actions.ClickOn(driver, liWomenOption);
         }
 
     }

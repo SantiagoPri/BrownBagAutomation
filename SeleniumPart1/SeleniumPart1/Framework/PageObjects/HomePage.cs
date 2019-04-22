@@ -12,6 +12,7 @@ namespace SeleniumPart1.Framework.PageObjects
     class HomePage
     {
         private IWebDriver driver;
+        By divSignIn = By.ClassName("header_user_info");
 
         public HomePage(IWebDriver driver)
         {
@@ -21,27 +22,18 @@ namespace SeleniumPart1.Framework.PageObjects
         public void GoToPage()
         {
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
-            PageFactory.InitElements(driver, this);
+            //PageFactory.InitElements(driver, this);
         }
 
-        /*[FindsBy(How = How.Id, Using = "contact-link")]
-        private IWebElement contactLink;
-
-        [FindsBy(How = How.ClassName, Using = "header_user_info")]
+        
+        /*[FindsBy(How = How.ClassName, Using = "header_user_info")]
         private IWebElement signIn;*/
 
 
-           
         
-        public void ClickOnContackLink()
-        {
-            Actions.ClickOn(driver, By.Id("contact-link"));
-        }
-
-
         public void ClickOnSignIn()
         {
-            Actions.ClickOn(driver, By.ClassName("header_user_info"));
+            Actions.ClickOn(driver, divSignIn);
         }
     }
 }
