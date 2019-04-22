@@ -16,7 +16,7 @@ namespace SeleniumPart1.Framework.BrowserCommands
 
             try
             {
-                WaitForElement(driver, by);
+                WaitForElement(driver);
                 element = driver.FindElement(by);
             }
             catch
@@ -53,7 +53,7 @@ namespace SeleniumPart1.Framework.BrowserCommands
         }
 
         
-        public static void WaitForElement(IWebDriver driver, By by)
+        public static void WaitForElement(IWebDriver driver)
         {
            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
@@ -61,7 +61,7 @@ namespace SeleniumPart1.Framework.BrowserCommands
        
         public static void Type(IWebDriver driver, By by, string value)
         {            
-            WaitForElement(driver, by);
+            WaitForElement(driver);
             IWebElement element = driver.FindElement(by);
             element.SendKeys(value);
         }
@@ -69,10 +69,17 @@ namespace SeleniumPart1.Framework.BrowserCommands
 
         public static void SelectValue(IWebDriver driver, By by, string value)
         {
-            WaitForElement(driver, by);
+            WaitForElement(driver);
             IWebElement element = driver.FindElement(by);
             SelectElement subjectHeading = new SelectElement(element);
             subjectHeading.SelectByValue(value);
+        }
+
+        public static string GetText(IWebDriver driver, By by)
+        {
+            WaitForElement(driver);
+            IWebElement element = driver.FindElement(by);
+            return element.Text;
         }
 
     }

@@ -10,18 +10,19 @@ using System.Threading.Tasks;
 namespace SeleniumPart1.Framework.PageObjects
 {
     class AdressPage
-    {
+    {        
         private IWebDriver driver;
+        By btnProceedCheckout = By.XPath("//*[@id=\"center_column\"]/form/p/button");
 
         public AdressPage(IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            //PageFactory.InitElements(driver, this);
         }
 
         public void ClickOnProceedCheckout()
         {
-            Actions.ClickOn(driver, By.XPath("//*[@id=\"center_column\"]/form/p/button"));
+            Actions.ClickOn(driver, btnProceedCheckout);
         }
 
     }

@@ -12,22 +12,24 @@ namespace SeleniumPart1.Framework.PageObjects
     class ShippingPage
     {
         private IWebDriver driver;
+        By chkTermsofService = By.Id("cgv");
+        By btnProceedCheckout = By.XPath("//*[@id=\"form\"]/p/button");
 
         public ShippingPage(IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
+            //PageFactory.InitElements(driver, this);
         }
 
 
         public void AgreeTermsOfService()
         {
-            Actions.ClickOn(driver, By.Id("cgv"));
+            Actions.ClickOn(driver, chkTermsofService);
         }
 
         public void ClickOnProceedCheckout()
         {
-            Actions.ClickOn(driver, By.XPath("//*[@id=\"form\"]/p/button"));
+            Actions.ClickOn(driver, btnProceedCheckout);
         }
     }
 }
