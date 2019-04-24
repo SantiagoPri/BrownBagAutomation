@@ -12,7 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class Window
     {
         private IWebDriver driver;
-        By btnProceedCheckout = By.XPath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a");
 
         public Window(IWebDriver driver)
         {
@@ -29,11 +28,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void ClickOnProceedCheckout()
         {
-            Actions.ClickOn(driver, btnProceedCheckout);
-
-
-
-
+            TestActions.ClickOnButton(driver, By.XPath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a"));
         }
 
     }

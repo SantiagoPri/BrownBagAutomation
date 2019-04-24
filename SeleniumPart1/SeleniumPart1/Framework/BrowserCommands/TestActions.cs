@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 
 namespace SeleniumPart1.Framework.BrowserCommands
 {
-    class Actions
+    class TestActions
     {
-        public static void ClickOn(IWebDriver driver, By by)
+        public static void ClickOnButton(IWebDriver driver, By by)
         {
-            IWebElement element;
+            WaitForElementClickable(driver, by);
+            IWebElement element = driver.FindElement(by);
+            element.Click();
+
+            /*IWebElement element;
 
             try
             {
-                WaitForElement(driver);
+                WaitForElementVisible(driver, by);
                 element = driver.FindElement(by);
             }
             catch
@@ -35,33 +39,48 @@ namespace SeleniumPart1.Framework.BrowserCommands
                     IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
                     executor.ExecuteScript("arguments[0].click();", by);
                 }
-            }
+            }*/
         }
 
-        public static void ClickOnTest(IWebDriver driver, IWebElement element)
+        public static void ClickOnCheckBox(IWebDriver driver, By by)
         {
-            try
+            WaitForElementExist(driver, by);
+            IWebElement element = driver.FindElement(by);
+
+            if (!element.Selected)
             {
                 element.Click();
             }
-            catch
-            {
-                IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
-                executor.ExecuteScript("arguments[0].click();", element);
-
-            }
         }
 
-        
-        public static void WaitForElement(IWebDriver driver)
+
+        public static void WaitForElementClickable(IWebDriver driver, By by)
         {
-           driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            IWebElement element = wait.Until(ExpectedConditions.ElementToBeClickable(by));
         }
 
-       
+
+
+        public static void WaitForElementVisible(IWebDriver driver, By by)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
+
+        public static void WaitForElementExist(IWebDriver driver, By by)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            IWebElement element = wait.Until(ExpectedConditions.ElementExists(by));
+        }
+
+
+
+
+
         public static void Type(IWebDriver driver, By by, string value)
-        {            
-            WaitForElement(driver);
+        {
+            WaitForElementVisible(driver, by);
             IWebElement element = driver.FindElement(by);
             element.SendKeys(value);
         }
@@ -69,7 +88,7 @@ namespace SeleniumPart1.Framework.BrowserCommands
 
         public static void SelectValue(IWebDriver driver, By by, string value)
         {
-            WaitForElement(driver);
+            WaitForElementVisible(driver, by);
             IWebElement element = driver.FindElement(by);
             SelectElement subjectHeading = new SelectElement(element);
             subjectHeading.SelectByValue(value);
@@ -77,10 +96,12 @@ namespace SeleniumPart1.Framework.BrowserCommands
 
         public static string GetText(IWebDriver driver, By by)
         {
-            WaitForElement(driver);
+            WaitForElementVisible(driver, by);
             IWebElement element = driver.FindElement(by);
             return element.Text;
         }
 
     }
+
+
 }

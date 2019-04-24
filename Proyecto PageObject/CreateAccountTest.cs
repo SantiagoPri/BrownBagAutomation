@@ -10,7 +10,7 @@ using ProjectPageObject.PageObjects;
 namespace ProjectPageObject
 {
     [TestClass]
-    public class Register
+    public class CreateAccountTest
     {
         IWebDriver driver;
 
@@ -22,9 +22,8 @@ namespace ProjectPageObject
         }
 
         [TestMethod]
-        public void RegisterTest()
+        public void Register()
         {
-
             HomePage homePage = new HomePage(driver);
             SignInPage signInPage = new SignInPage(driver);
             CreateAccountPage createAccountPage = new CreateAccountPage(driver);

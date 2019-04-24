@@ -12,7 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class ShoppingCartPage
     {
         private IWebDriver driver;
-        By btnProceedCheckout = By.XPath("//*[@id=\"center_column\"]/p[2]/a[1]");
 
         public ShoppingCartPage(IWebDriver driver)
         {
@@ -27,7 +26,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void ClickOnProceedCheckout()
         {
-            Actions.ClickOn(driver, btnProceedCheckout);
+            TestActions.ClickOnButton(driver, By.XPath("//*[@id=\"center_column\"]/p[2]/a[1]"));
         }
 
 

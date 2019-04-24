@@ -12,7 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class OrderConfirmationPage
     {
         private IWebDriver driver;
-        By lblSuccess = By.XPath("//*[@id=\"center_column\"]/p[1]");
 
         public OrderConfirmationPage(IWebDriver driver)
         {
@@ -26,8 +25,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public string GetSuccessMessage()
         {
-            string success = Actions.GetText(driver, lblSuccess);
-            return success;
+            return TestActions.GetText(driver, By.XPath("//*[@id=\"center_column\"]/p[1]"));
         }
 
     }

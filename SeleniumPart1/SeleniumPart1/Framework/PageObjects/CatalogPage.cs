@@ -12,7 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class CatalogPage
     {
         private IWebDriver driver;
-        By btnAddtoCart = By.XPath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/div[2]/a[1]");
 
         public CatalogPage(IWebDriver driver)
         {
@@ -28,7 +27,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void ClickOnAddtoCartButton()
         {
-            Actions.ClickOn(driver, btnAddtoCart);
+            TestActions.ClickOnButton(driver, By.XPath("//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/div[2]/a[1]"));
         }
                 
 

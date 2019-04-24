@@ -12,7 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class PaymentPage
     {
         private IWebDriver driver;
-        By btnPaybyCheck = By.ClassName("payment_module");
 
         public PaymentPage(IWebDriver driver)
         {
@@ -22,7 +21,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void PaybyCheck()
         {
-            Actions.ClickOn(driver, btnPaybyCheck);
+            TestActions.ClickOnButton(driver, By.ClassName("payment_module"));
         }
     }
 }

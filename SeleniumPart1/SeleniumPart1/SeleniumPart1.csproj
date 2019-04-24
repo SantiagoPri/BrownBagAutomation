@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddToCart.cs" />
-    <Compile Include="Framework\BrowserCommands\Actions.cs" />
+    <Compile Include="Framework\BrowserCommands\TestActions.cs" />
     <Compile Include="Framework\PageObjects\AdressPage.cs" />
     <Compile Include="Framework\PageObjects\CatalogPage.cs" />
     <Compile Include="Framework\PageObjects\HomePage.cs" />

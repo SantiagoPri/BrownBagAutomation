@@ -12,9 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class LogInPage
     {
         private IWebDriver driver;
-        By txtEmail = By.Id("email");
-        By txtPassword = By.Id("passwd");
-        By btnSubmit = By.Id("SubmitLogin");
 
         public LogInPage(IWebDriver driver)
         {
@@ -36,13 +33,13 @@ namespace SeleniumPart1.Framework.PageObjects
         
         public void FillLogInForm(string email, string pass)
         {
-            Actions.Type(driver, txtEmail, email);
-            Actions.Type(driver, txtPassword, pass);
+            TestActions.Type(driver, By.Id("email"), email);
+            TestActions.Type(driver, By.Id("passwd"), pass);
         }
 
         public void ClickOnSubmitLogin()
         {
-            Actions.ClickOn(driver, btnSubmit);
+            TestActions.ClickOnButton(driver, By.Id("SubmitLogin"));
         }
     }
 }
