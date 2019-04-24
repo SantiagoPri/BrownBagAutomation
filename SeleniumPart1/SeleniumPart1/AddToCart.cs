@@ -11,13 +11,14 @@ namespace SeleniumPart1
     {
         IWebDriver driver;
 
-        [TestInitialize] //Configuración inicial del test
-        public void TestInitialize() 
+        [TestInitialize]
+        public void TestInitialize()
         {
             driver = new ChromeDriver();
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
-        
-        [TestMethod] // Donde hacemos el paso a paso que está indicado en el testcase
+
+        [TestMethod]
         public void TestMethod1()
         {
             HomePage homePage = new HomePage(driver);
@@ -49,7 +50,7 @@ namespace SeleniumPart1
             orderConfirmationPage.GetSuccessMessage();
         }
 
-        [TestCleanup] //cierra el driver
+        [TestCleanup]
         public void TestCleanup()
         {
             driver.Quit();

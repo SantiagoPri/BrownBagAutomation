@@ -1,18 +1,19 @@
 ﻿using System;
-using ProjectPageObject.PageObjects;
+using System.Text;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Chrome;
+using ProjectPageObject.PageObjects;
 
 namespace ProjectPageObject
 {
     [TestClass]
-    public class ContactUs
+    public class SignInTest
     {
         IWebDriver driver;
-
-
+        
         [TestInitialize] //Configuración inicial del test
         public void TestInitialize()
         {
@@ -21,23 +22,25 @@ namespace ProjectPageObject
         }
 
         [TestMethod] //Donde hacemos el paso a paso que está indicado en el testcase
-        public void ContactUsTest()
+        public void SignIn()
         {
 
             HomePage homePage = new HomePage(driver);
-            ContactUsPage contactUsPage = new ContactUsPage(driver);
+            SignInPage signInPage = new SignInPage(driver);
+            MyAccountPage myAccountPage = new MyAccountPage(driver);
 
+            
             homePage.GoToPage();
-            homePage.ClickOnContactLink();
-
-            contactUsPage.Fillform("hola@mailinator.com", "1012252", "this is a test for automation");
-            Assert.AreEqual("Your message has been successfully sent to our team.", contactUsPage.GetSuccessMsg());
+            homePage.ClickOnSignIn();
+            
+            signInPage.FillSignIn("anEmail3@fake.com", "Password");
+            Assert.AreEqual("Welcome to your account. Here you can manage all of your personal information and orders.", myAccountPage.GetLogInMsg());
         }
 
         [TestCleanup] //Cierra el driver
         public void TestCleanup()
         {
-           driver.Quit();
+            driver.Quit();
         }
     }
 }

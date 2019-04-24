@@ -12,8 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class ShippingPage
     {
         private IWebDriver driver;
-        By chkTermsofService = By.Id("cgv");
-        By btnProceedCheckout = By.XPath("//*[@id=\"form\"]/p/button");
 
         public ShippingPage(IWebDriver driver)
         {
@@ -24,12 +22,12 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void AgreeTermsOfService()
         {
-            Actions.ClickOn(driver, chkTermsofService);
+            TestActions.ClickOnCheckBox(driver, By.Id("cgv"));
         }
 
         public void ClickOnProceedCheckout()
         {
-            Actions.ClickOn(driver, btnProceedCheckout);
+            TestActions.ClickOnButton(driver, By.XPath("//*[@id=\"form\"]/p/button"));
         }
     }
 }

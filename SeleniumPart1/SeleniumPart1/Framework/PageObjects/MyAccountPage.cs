@@ -12,8 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class MyAccountPage
     {
         private IWebDriver driver;
-        By liWomenOption = By.XPath("//*[@id=\"block_top_menu\"]/ul/li[1]");
-        By lblSuccess = By.ClassName("info-account");
 
         public MyAccountPage (IWebDriver driver)
         {
@@ -30,15 +28,13 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public string GetSuccessMessage()
         {
-            string success = Actions.GetText(driver, lblSuccess);
-            return success;
-            //return success.Text;
+            return TestActions.GetText(driver, By.ClassName("info-account"));            
         }
 
 
         public void ClickOnWomenOption()
         {
-            Actions.ClickOn(driver, liWomenOption);
+            TestActions.ClickOnButton(driver, By.XPath("//*[@id=\"block_top_menu\"]/ul/li[1]"));
         }
 
     }

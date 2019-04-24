@@ -11,10 +11,11 @@ namespace SeleniumPart1
     {
         IWebDriver driver;
 
-        [TestInitialize] //Configuración inicial del test
+        [TestInitialize]
         public void TestInitialize()
         {
-            driver = new ChromeDriver(); //inicializa el driver
+            driver = new ChromeDriver();
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         [TestMethod] // Donde hacemos el paso a paso que está indicado en el testcase
@@ -22,12 +23,14 @@ namespace SeleniumPart1
         {
             driver.Url = "http://automationpractice.com/index.php?";
             driver.FindElement(By.ClassName("header_user_info")).Click();
-            driver.FindElement(By.Id("email_create")).SendKeys("sssss8887@gmail.com");
+            driver.FindElement(By.Id("email_create")).SendKeys("sssss7880@gmail.com");
             driver.FindElement(By.Id("SubmitCreate")).Click();
 
-            WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
-            IWebElement gender = wait.Until(driver => driver.FindElement(By.Id("id_gender2")));
-            gender.Click();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("id_gender2")));        
+
+            driver.FindElement(By.Id("id_gender2")).Click();
+            
             driver.FindElement(By.Id("customer_firstname")).SendKeys("Patricia");
             driver.FindElement(By.Id("customer_lastname")).SendKeys("Londoño");
             driver.FindElement(By.Id("passwd")).SendKeys("clave1");
@@ -55,10 +58,10 @@ namespace SeleniumPart1
 
 
 
-        [TestCleanup] //cierra el driver
+        [TestCleanup]
         public void TestCleanup()
         {
-            driver.Quit(); 
+            driver.Quit();
         }
     }
 }

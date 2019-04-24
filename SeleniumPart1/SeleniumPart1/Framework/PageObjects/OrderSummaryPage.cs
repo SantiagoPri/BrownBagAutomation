@@ -12,7 +12,6 @@ namespace SeleniumPart1.Framework.PageObjects
     class OrderSummaryPage
     {
         private IWebDriver driver;
-        By btnProceedCheckout = By.XPath("//*[@id=\"cart_navigation\"]/button");
 
         public OrderSummaryPage(IWebDriver driver)
         {
@@ -22,7 +21,7 @@ namespace SeleniumPart1.Framework.PageObjects
 
         public void ClickOnProceedCheckout()
         {
-            Actions.ClickOn(driver, btnProceedCheckout);
+            TestActions.ClickOnButton(driver, By.XPath("//*[@id=\"cart_navigation\"]/button"));
         }
     }
 }
